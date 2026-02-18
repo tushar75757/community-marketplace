@@ -16,6 +16,10 @@ jobs:
           cd frontend
           npm install
           npm run build
+          # Create .nojekyll to bypass Jekyll processing
+          touch dist/.nojekyll
+          # Copy index.html to 404.html to handle SPA routing
+          cp dist/index.html dist/404.html
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
